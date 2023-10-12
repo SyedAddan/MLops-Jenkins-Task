@@ -12,5 +12,5 @@ def setNameTest():
     assert insaan.getName() == "shareef"
     
 def setAgeTest():
-    insaan.setAge(18)
-    assert insaan.getAge() == 18
+    insaan.setAge(20)
+    assert insaan.getAge() == 20

@@ -10,19 +10,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'python3 test.py'
+                bat 'python test.py'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'echo "Deployed!!!"'
+                bat 'echo "Deployed!!!"'
             }
         }
     }

@@ -4,41 +4,24 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the GitHub repository
-                // script {
-                //     def gitUrl = 'https://github.com/yourusername/your-repo.git'
-                //     def credentialsId = 'your-github-credentials-id'
-
-                //     checkout([
-                //         $class: 'GitSCM',
-                //         branches: [[name: '*/main']],
-                //         doGenerateSubmoduleConfigurations: false,
-                //         extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true, timeout: 10]],
-                //         userRemoteConfigs: [[credentialsId: credentialsId, url: gitUrl]]
-                //     ])
-                // }
-                checkout scm
+                git branch: 'main', url: 'https://github.com/SyedAddan/MLops-Jenkins-Task.git'
             }
         }
 
         stage('Build') {
             steps {
-                // Build your Python project
                 sh 'pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
-                // Run tests using pytest
-                sh 'pip install pytest'
-                sh 'pytest test.py'
+                sh 'python3 test.py'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Deploy your Python project (Dummy)
                 sh 'echo "Deployed!!!"'
             }
         }

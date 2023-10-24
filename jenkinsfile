@@ -22,7 +22,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'echo "Deployed!!!"'
+                def deployGroovy = "load deply.groovy"
+                deployGroovy.deploy()
             }
         }
     }

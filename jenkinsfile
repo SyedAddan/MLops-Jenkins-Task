@@ -22,8 +22,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                def deployGroovy = "load deploy.groovy"
-                deployGroovy.deploy()
+                script {
+                    def deployGroovy = load "deploy.groovy"
+                    deployGroovy.deploy()
+                }
             }
         }
     }
